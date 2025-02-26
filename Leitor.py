@@ -12,6 +12,17 @@ def combate(jogador, inimigo):
 def jogar(jogo):
     local_atual_id = jogo['startLocationId']
     inventario = []
+
+    '''item_inicial = {
+        "name": "tesoura",
+        "description": "Uma tesoura afiada que pode ser útil.",
+        "id": "2",
+        "can_take": True,
+        "inactive": False
+    }
+
+    inventario.append(item_inicial)'''
+    
     jogador = {
         'life': jogo['life'],
         'attack': jogo['attack'],
@@ -79,7 +90,7 @@ def jogar(jogo):
                                 for saida in local_atual['exits']:
                                     if saida['targetLocationId'] == target_location_id:
                                         saida['inactive'] = False
-                                        print(f"A saída para {saida['direction']} foi ativada!")  
+                                        print(f"A saída para {saida['direction']} foi ativada!")
                             inventario.remove(item)
                             break
                     else:
@@ -87,6 +98,7 @@ def jogar(jogo):
                     break
             else:
                 print("Item não encontrado no inventário.")
+
 
         elif acao == "inventario":
             print("\nInventário:")

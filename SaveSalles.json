@@ -67,7 +67,7 @@
       {
         "id": 2,
         "name": "Corredor",
-        "description": "O corredor do CCET está silencioso. Há uma porta ao sul que leva de volta ao Laboratório 3, uma porta ao leste que leva à biblioteca e uma porta ao norte que leva à Coordenação.",
+        "description": "O corredor do CCET está silencioso. Há uma porta ao sul que leva de volta ao Laboratório 3, uma porta ao leste que leva à biblioteca e uma porta ao norte que leva à Cordenação.",
         "exits": [
           {
             "direction": "sul",
@@ -84,7 +84,7 @@
           {
             "direction": "norte",
             "targetLocationId": 4,
-            "description": "A porta leva à Coordenação.",
+            "description": "A porta leva à Cordenação.",
             "inactive": false
           }
         ],
@@ -97,17 +97,17 @@
             "inactive": false,
             "dialogues": [
               {
-                "text": "Ninguém entra na biblioteca sem a permissão do Coordenador Antonio.",
+                "text": "Ninguém entra na biblioteca sem a permissão do Cordenador Antonio.",
                 "responses": [
                   {
-                    "text": "Onde posso encontrar o Coordenador Antonio?",
+                    "text": "Onde posso encontrar o Cordenador Antonio?",
                     "result": {
                       "active": [],
                       "lose_item": []
                     }
                   },
                   {
-                    "text": "Eu preciso entrar, é uma emergência!",
+                    "text": "Você pode encontrá-lo na Cordenação",
                     "result": {
                       "active": [],
                       "lose_item": []
@@ -121,10 +121,10 @@
         "puzzles": [
           {
             "id": 1,
-            "description": "O guarda só deixará você passar se você tiver uma permissão do Coordenador Antonio.",
+            "description": "O guarda só deixará você passar se você tiver uma permissão do Cordenador Antonio.",
             "solution": {
               "requiredItems": [4],
-              "actions": "mostrar permissao"
+              "actions": "usar permissao"
             },
             "result": {
               "active": [3],
@@ -156,8 +156,8 @@
         "items": [
           {
             "id": 2,
-            "name": "livro",
-            "description": "Um livro antigo com símbolos estranhos. Parece importante.",
+            "name": "tesoura",
+            "description": "Há uma tesoura jogada no chão da biblioteca. Pode ser útil.",
             "can_take": true,
             "inactive": false
           }
@@ -182,8 +182,8 @@
       },
       {
         "id": 4,
-        "name": "Coordenação",
-        "description": "Você está na Coordenação. O Coordenador Antonio está sentado atrás de uma grande mesa.",
+        "name": "Cordenação",
+        "description": "Você está na Cordenação. O Cordenador Antonio está sentado atrás de uma grande mesa.",
         "exits": [
           {
             "direction": "sul",
@@ -196,7 +196,7 @@
           {
             "id": 4,
             "name": "permissao",
-            "description": "Uma permissão assinada pelo Coordenador Antonio para acessar a biblioteca.",
+            "description": "Uma permissão assinada pelo Cordenador Antonio para acessar a biblioteca.",
             "can_take": true,
             "inactive": false
           }
@@ -204,8 +204,8 @@
         "npcs": [
           {
             "id": 3,
-            "name": "Coordenador Antonio",
-            "description": "O Coordenador parece ocupado, mas ele está disposto a ajudar.",
+            "name": "Cordenador Antonio",
+            "description": "O Cordenador parece ocupado, mas ele está disposto a ajudar.",
             "inactive": false,
             "dialogues": [
               {
@@ -266,7 +266,6 @@
             "result": {
               "active": [],
               "lose_item": [5],
-              "gain_item": [6],
               "lose_life": 0
             }
           }
@@ -311,7 +310,7 @@
         "exits": [
           {
             "direction": "sul",
-            "targetLocationId": 1,
+            "targetLocationId": 8,
             "description": "A porta leva ao Laboratório 4",
             "inactive": true
           }
@@ -344,12 +343,12 @@
             "id": 4,
             "description": "O professor Salles está amarrado, desamarre ele e salve-o",
             "solution": {
-              "requiredItems": [],
+              "requiredItems": [2],
               "actions": "usar tesoura"
             },
             "result": {
-              "active": [],
-              "lose_item": [],
+              "active": [8],
+              "lose_item": [2],
               "lose_life": 0
             }
           }
