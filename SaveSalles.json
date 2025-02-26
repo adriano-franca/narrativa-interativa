@@ -319,7 +319,7 @@
         "npcs": [
           {
             "id": 4,
-            "name": "Professor Salles",
+            "name": "Salles",
             "description": "O Professor Salles está amarrado e parece assustado.",
             "inactive": false,
             "dialogues": [
@@ -374,7 +374,7 @@
         "npcs": [
           {
             "id": 4,
-            "name": "Professor Salles",
+            "name": "Salles",
             "description": "O Professor Salles está feliz e sorridente.",
             "inactive": false,
             "dialogues": [
