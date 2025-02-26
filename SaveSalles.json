@@ -1,0 +1,401 @@
+{
+    "title": "O Resgate do Professor Salles",
+    "description": "Você é um aluno e seu professor predileto, o Professor Salles, foi raptado. Explore a faculdade, resolva puzzles, interaja com NPCs, derrote inimigos e encontre o Professor Salles antes que seja tarde demais!",
+    "author": "Guilherme",
+    "startLocationId": 1,
+    "max_itens": 5,
+    "max_turns_easy": 100,
+    "max_turns_normal": 75,
+    "max_turns_hard": 50,
+    "attack": 10,
+    "defense": 8,
+    "life": 22,
+    "locations": [
+      {
+        "id": 1,
+        "name": "Laboratório 3",
+        "description": "Você está no Laboratório 3 onde tudo começou. O quadro está cheio de equações e há uma porta ao norte. O Professor Salles costumava ensinar aqui, mas agora ele desapareceu.",
+        "exits": [
+          {
+            "direction": "norte",
+            "targetLocationId": 2,
+            "description": "A porta leva ao corredor.",
+            "inactive": false
+          }
+        ],
+        "items": [
+          {
+            "id": 1,
+            "name": "caneta",
+            "description": "Uma caneta comum, mas pode ser útil para anotar coisas.",
+            "can_take": true,
+            "inactive": false
+          }
+        ],
+        "npcs": [
+          {
+            "id": 1,
+            "name": "Colega",
+            "description": "Um colega de classe parece preocupado. Ele está olhando para o quadro.",
+            "inactive": false,
+            "dialogues": [
+              {
+                "text": "Ei, você viu o Professor Salles? Ele sumiu depois da aula...",
+                "responses": [
+                  {
+                    "text": "Não, estou procurando por ele. Você sabe de algo?",
+                    "result": {
+                      "active": [],
+                      "lose_item": []
+                    }
+                  },
+                  {
+                    "text": "Não tenho tempo para conversar.",
+                    "result": {
+                      "active": [],
+                      "lose_item": []
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "puzzles": [],
+        "enemies": []
+      },
+      {
+        "id": 2,
+        "name": "Corredor",
+        "description": "O corredor do CCET está silencioso. Há uma porta ao sul que leva de volta ao Laboratório 3, uma porta ao leste que leva à biblioteca e uma porta ao norte que leva à Coordenação.",
+        "exits": [
+          {
+            "direction": "sul",
+            "targetLocationId": 1,
+            "description": "A porta leva de volta ao Laboratório 3.",
+            "inactive": false
+          },
+          {
+            "direction": "leste",
+            "targetLocationId": 3,
+            "description": "A porta leva à biblioteca, mas o guarda não está deixando ninguém entrar.",
+            "inactive": true
+          },
+          {
+            "direction": "norte",
+            "targetLocationId": 4,
+            "description": "A porta leva à Coordenação.",
+            "inactive": false
+          }
+        ],
+        "items": [],
+        "npcs": [
+          {
+            "id": 2,
+            "name": "Guarda",
+            "description": "Um guarda grande e intimidador está bloqueando a entrada da biblioteca.",
+            "inactive": false,
+            "dialogues": [
+              {
+                "text": "Ninguém entra na biblioteca sem a permissão do Coordenador Antonio.",
+                "responses": [
+                  {
+                    "text": "Onde posso encontrar o Coordenador Antonio?",
+                    "result": {
+                      "active": [],
+                      "lose_item": []
+                    }
+                  },
+                  {
+                    "text": "Eu preciso entrar, é uma emergência!",
+                    "result": {
+                      "active": [],
+                      "lose_item": []
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "puzzles": [
+          {
+            "id": 1,
+            "description": "O guarda só deixará você passar se você tiver uma permissão do Coordenador Antonio.",
+            "solution": {
+              "requiredItems": [4],
+              "actions": "mostrar permissao"
+            },
+            "result": {
+              "active": [3],
+              "lose_item": [],
+              "lose_life": 0
+            }
+          }
+        ],
+        "enemies": []
+      },
+      {
+        "id": 3,
+        "name": "Biblioteca",
+        "description": "A biblioteca está cheia de livros antigos. Há uma mesa no centro com um livro aberto e uma porta ao oeste que leva de volta ao corredor.",
+        "exits": [
+          {
+            "direction": "oeste",
+            "targetLocationId": 2,
+            "description": "A porta leva de volta ao corredor.",
+            "inactive": false
+          },
+          {
+            "direction": "norte",
+            "targetLocationId": 5,
+            "description": "Há uma estante bem estranha na biblioteca.",
+            "inactive": true
+          }
+        ],
+        "items": [
+          {
+            "id": 2,
+            "name": "livro",
+            "description": "Um livro antigo com símbolos estranhos. Parece importante.",
+            "can_take": true,
+            "inactive": false
+          }
+        ],
+        "npcs": [],
+        "puzzles": [
+          {
+            "id": 2,
+            "description": "O livro aberto na mesa parece ter uma mensagem codificada. Talvez você precise de algo para decifrá-la.",
+            "solution": {
+              "requiredItems": [1],
+              "actions": "usar caneta"
+            },
+            "result": {
+              "active": [5],
+              "lose_item": [1],
+              "lose_life": 0
+            }
+          }
+        ],
+        "enemies": []
+      },
+      {
+        "id": 4,
+        "name": "Coordenação",
+        "description": "Você está na Coordenação. O Coordenador Antonio está sentado atrás de uma grande mesa.",
+        "exits": [
+          {
+            "direction": "sul",
+            "targetLocationId": 2,
+            "description": "A porta leva de volta ao corredor.",
+            "inactive": false
+          }
+        ],
+        "items": [
+          {
+            "id": 4,
+            "name": "permissao",
+            "description": "Uma permissão assinada pelo Coordenador Antonio para acessar a biblioteca.",
+            "can_take": true,
+            "inactive": false
+          }
+        ],
+        "npcs": [
+          {
+            "id": 3,
+            "name": "Coordenador Antonio",
+            "description": "O Coordenador parece ocupado, mas ele está disposto a ajudar.",
+            "inactive": false,
+            "dialogues": [
+              {
+                "text": "Olá, aluno. O que você precisa?",
+                "responses": [
+                  {
+                    "text": "Preciso de uma permissão para entrar na biblioteca.",
+                    "result": {
+                      "active": [4],
+                      "lose_item": []
+                    }
+                  },
+                  {
+                    "text": "Nada, obrigado.",
+                    "result": {
+                      "active": [],
+                      "lose_item": []
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "puzzles": [],
+        "enemies": []
+      },
+      {
+        "id": 5,
+        "name": "Sala Secreta",
+        "description": "Você encontrou uma sala secreta atrás de uma estante na biblioteca. Há uma porta ao norte que leva a um labirinto e um baú trancado no canto.",
+        "exits": [
+          {
+            "direction": "norte",
+            "targetLocationId": 6,
+            "description": "A porta leva a um labirinto escuro.",
+            "inactive": false
+          }
+        ],
+        "items": [
+          {
+            "id": 3,
+            "name": "baú",
+            "description": "Um baú trancado. Parece que precisa de uma chave para abrir.",
+            "can_take": false,
+            "inactive": false
+          }
+        ],
+        "npcs": [],
+        "puzzles": [
+          {
+            "id": 3,
+            "description": "O baú está trancado. Talvez você precise encontrar uma chave.",
+            "solution": {
+              "requiredItems": [5],
+              "actions": "usar chave"
+            },
+            "result": {
+              "active": [],
+              "lose_item": [5],
+              "gain_item": [6],
+              "lose_life": 0
+            }
+          }
+        ],
+        "enemies": []
+      },
+      {
+        "id": 6,
+        "name": "Labirinto",
+        "description": "O labirinto é escuro e assustador. Você ouve barulhos estranhos ao longe. Há várias direções para seguir.",
+        "exits": [
+          {
+            "direction": "sul",
+            "targetLocationId": 5,
+            "description": "A porta leva de volta à sala secreta.",
+            "inactive": false
+          },
+          {
+            "direction": "leste",
+            "targetLocationId": 7,
+            "description": "Um caminho estreito que leva a uma sala iluminada.",
+            "inactive": false
+          }
+        ],
+        "items": [
+          {
+            "id": 5,
+            "name": "chave",
+            "description": "Uma chave antiga. Talvez sirva para abrir algo.",
+            "can_take": true,
+            "inactive": false
+          }
+        ],
+        "npcs": [],
+        "puzzles": [],
+        "enemies": []
+      },
+      {
+        "id": 7,
+        "name": "Sala Final",
+        "description": "Você encontrou a sala final. O Professor Salles está amarrado a uma cadeira no centro da sala. Há um inimigo guardando ele.",
+        "exits": [
+          {
+            "direction": "sul",
+            "targetLocationId": 1,
+            "description": "A porta leva ao Laboratório 4",
+            "inactive": true
+          }
+        ],
+        "items": [],
+        "npcs": [
+          {
+            "id": 4,
+            "name": "Professor Salles",
+            "description": "O Professor Salles está amarrado e parece assustado.",
+            "inactive": false,
+            "dialogues": [
+              {
+                "text": "Rápido, derrote o guarda e me liberte!",
+                "responses": [
+                  {
+                    "text": "Estou aqui para te salvar!",
+                    "result": {
+                      "active": [],
+                      "lose_item": []
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "puzzles": [
+          {
+            "id": 4,
+            "description": "O professor Salles está amarrado, desamarre ele e salve-o",
+            "solution": {
+              "requiredItems": [],
+              "actions": "usar tesoura"
+            },
+            "result": {
+              "active": [],
+              "lose_item": [],
+              "lose_life": 0
+            }
+          }
+        ],
+        "enemies": [
+          {
+            "attack": 15,
+            "defense": 10,
+            "result": {
+              "active": [],
+              "lose_item": [],
+              "lose_life": 15
+            }
+          }
+        ]
+      },
+      {
+      "id": 8,
+        "name": "Laboratório 4",
+        "description": "Você chegou ao final e salvou o professor Salles. O Professor Salles lhe aguarda para falar com você.",
+        "exits": [],
+        "items": [],
+        "npcs": [
+          {
+            "id": 4,
+            "name": "Professor Salles",
+            "description": "O Professor Salles está feliz e sorridente.",
+            "inactive": false,
+            "dialogues": [
+              {
+                "text": "Obrigado por me libertar, por sua bravura e coragem vou te dar um 10 na disciplina de Hipermídia",
+                "responses": [
+                  {
+                    "text": "Muito obrigado, professor! A gente se vê de novo em Algoritmos 2!",
+                    "result": {
+                      "active": [],
+                      "lose_item": []
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "puzzles": [],
+        "enemies": []
+      }
+    ]
+  }
